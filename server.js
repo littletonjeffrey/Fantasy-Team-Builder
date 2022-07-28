@@ -26,7 +26,7 @@ function doYouWantToBuildAParty() {
     inquirer.prompt([
         {type: 'list',
         message: 'Want to add a new party member?',
-        name: 'charClass',
+        name: 'buildYorNo',
         choices: ['Excelsior!', 'Maybe later...']
         }
     ])
@@ -35,11 +35,22 @@ function doYouWantToBuildAParty() {
         console.log(buildYorNo)
 //if yes, send to character builder
         if (`$(buildYorNo)` === 'Excelsior!') {
-            buildCharTemplate();
+            chooseClass();
 //if no, build the party
         } else {
             buildParty();
         }
     })
 }
-
+//function to pick class
+function chooseClass() {
+    inquirer
+    .prompt([
+      {
+        type: 'list',
+        message: 'What class should this character be?',
+        name: 'classy',
+        choices: ['Artificer', 'Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard']
+      }
+    ])
+}
