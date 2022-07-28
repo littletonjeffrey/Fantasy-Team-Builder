@@ -20,15 +20,26 @@ const Wizard = require('./lib/wizard');
 //empty array to collect all of the party members
 const theInn = []
 
-//functiion to pick your party members
+//functiion to pick confirm adding a new party member
 doYouWantToBuildAParty();
 function doYouWantToBuildAParty() {
     inquirer.prompt([
         {type: 'list',
-        message: 'Choose a class for this character:',
+        message: 'Want to add a new party member?',
         name: 'charClass',
-        choices: ['Manager', 'Engineer', 'Intern', 'I am done']
+        choices: ['Excelsior!', 'Maybe later...']
+        }
     ])
 
+    .then((buildYorNo) => {
+        console.log(buildYorNo)
+//if yes, send to character builder
+        if (`$(buildYorNo)` === 'Excelsior!') {
+            buildCharTemplate();
+//if no, build the party
+        } else {
+            buildParty();
+        }
+    })
 }
 
