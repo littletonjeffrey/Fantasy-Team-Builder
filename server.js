@@ -53,13 +53,25 @@ function chooseClass() {
         choices: ['Artificer', 'Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard']
       }
     ])
+    // for loop to select appropriate class template
     .then((data) => {
         console.log(data.classy);
-        // for (i = 0; i <= classChoices.length; i++) {
-        //     if (data.classy === classChoices[i]) {
-        //         classChoices[i]Template()
-        //     }
-        // }
-    })  
+        for (i = 0; i <= classChoices.length; i++) {
+            if (data.classy === classChoices[i]) {
+                classChoices[i]Template()
+            }
+        }
+    }) 
+    // send user back to for option to build another character or stop
+} return doYouWantToBuildAParty()
+
+// function to build html
+function buildParty() {
+    var displayHTML = ''
+
+    for ()
+
 }
 module.exports = theInn;
+module.exports = chooseClass();
+
