@@ -19,7 +19,7 @@ THEN I exit the application, and the HTML is generated
 ```
 
 testing
-
+test character constructors and individual constructors for every class (not inquirer)
 constructors
 (lib folder)
 main construcor (employee)
