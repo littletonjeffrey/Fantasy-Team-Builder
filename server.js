@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 //needed class variables from the library
-const Character = require('.lib/character');
+const Character = require('./lib/character');
 const Artificer = require('./lib/artificer');
 const Barbarian = require('./lib/barbarian');
 const Bard = require('./lib/bard');
@@ -16,7 +16,8 @@ const Rogue = require('./lib/rogue');
 const Sorcerer = require('./lib/sorcerer');
 const Warlock = require('./lib/warlock');
 const Wizard = require('./lib/wizard');
-
+//array of classes for "routing" for loop
+const classChoices = ['Artificer', 'Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard']
 //empty array to collect all of the party members
 const theInn = []
 
@@ -30,11 +31,10 @@ function doYouWantToBuildAParty() {
         choices: ['Excelsior!', 'Maybe later...']
         }
     ])
-
-    .then((buildYorNo) => {
-        console.log(buildYorNo)
+    .then((data) => {
+        console.log(data.buildYorNo)
 //if yes, send to character builder
-        if (`$(buildYorNo)` === 'Excelsior!') {
+        if (`${data.buildYorNo} === 'Excelsior!'`) {
             chooseClass();
 //if no, build the party
         } else {
@@ -53,4 +53,13 @@ function chooseClass() {
         choices: ['Artificer', 'Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard']
       }
     ])
+    .then((data) => {
+        console.log(data.classy);
+        // for (i = 0; i <= classChoices.length; i++) {
+        //     if (data.classy === classChoices[i]) {
+        //         classChoices[i]Template()
+        //     }
+        // }
+    })  
 }
+module.exports = theInn;
