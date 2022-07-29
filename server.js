@@ -1,7 +1,7 @@
 //needed packages to run application
 const inquirer = require('inquirer');
 const fs = require('fs');
-
+//TO DO: create an index.js to export these variables from
 //needed class variables from the library
 const Character = require('./lib/character');
 const Artificer = require('./lib/artificer');
@@ -58,7 +58,7 @@ function chooseClass() {
         console.log(data.classy);
         for (i = 0; i <= classChoices.length; i++) {
             if (data.classy === classChoices[i]) {
-                classChoices[i]Template()
+                [classChoices[i]+'Template']()
             }
         }
     }) 
@@ -69,7 +69,15 @@ function chooseClass() {
 function buildParty() {
     var displayHTML = ''
 
-    for ()
+    for (i=0; i<theInn.length; i++) {
+        displayHTML += `
+       
+        //  <div class="col-12 col-md-4 col-lg-4 " style = "margin-top: 10px;">
+        // <div class="card" style="width: 18rem;">
+        //     <div class="card-header">
+        //       <h3>Name: ${theInn[i].name}</h3>
+        //       <h4>Class: ${theInn[i].getClass()}</h4>
+        //     `
 
 }
 module.exports = theInn;
