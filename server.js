@@ -8,6 +8,7 @@ const Character = require("./lib/character");
 const Artificer = require("./lib/artificer");
 const Barbarian = require("./lib/barbarian");
 const Bard = require("./lib/bard");
+const Cleric = require("./lib/cleric");
 const Druid = require("./lib/druid");
 const Fighter = require("./lib/fighter");
 const Monk = require("./lib/monk");
@@ -17,22 +18,35 @@ const Rogue = require("./lib/rogue");
 const Sorcerer = require("./lib/sorcerer");
 const Warlock = require("./lib/warlock");
 const Wizard = require("./lib/wizard");
-const { BarbarianTemplate, ArtificerTemplate } = require("./utils");
+const {
+  BarbarianTemplate,
+  ArtificerTemplate,
+  ClericTemplate,
+  DruidTemplate,
+  FighterTemplate,
+  MonkTemplate,
+  PaladinTemplate,
+  RangerTemplate,
+  RogueTemplate,
+  SorcererTemplate,
+  WarlockTemplate,
+  WizardTemplate,
+} = require("./utils");
 //array of classes for "routing" for loop
 const classChoices = [
   Artificer,
   Barbarian,
   Bard,
-  "Cleric",
-  "Druid",
-  "Fighter",
-  "Monk",
-  "Paladin",
-  "Ranger",
-  "Rogue",
-  "Sorcerer",
-  "Warlock",
-  "Wizard",
+  Cleric,
+  Druid,
+  Fighter,
+  Monk,
+  Paladin,
+  Ranger,
+  Rogue,
+  Sorcerer,
+  Warlock,
+  Wizard,
 ];
 //empty array to collect all of the party members
 const theInn = [];
@@ -54,7 +68,7 @@ function doYouWantToBuildAParty() {
       //if yes, send to character builder
       if (`${data.buildYorNo} === 'Excelsior!'`) {
         chooseClass();
-  
+
         //if no, build the party
       } else {
         buildParty();
@@ -70,36 +84,27 @@ function chooseClass() {
         message: "What class should this character be?",
         name: "classy",
         //can call the array up above
-        choices: [{name:'Artificer', value: ArtificerTemplate}, {name:'Barbarian', value: BarbarianTemplate}
-        //   "Artificer",
-        //   "Barbarian",
-        //   "Bard",
-        //   "Cleric",
-        //   "Druid",
-        //   "Fighter",
-        //   "Monk",
-        //   "Paladin",
-        //   "Ranger",
-        //   "Rogue",
-        //   "Sorcerer",
-        //   "Warlock",
-        //   "Wizard",
+        choices: [
+          { name: "Artificer", value: ArtificerTemplate },
+          { name: "Barbarian", value: BarbarianTemplate },
+          { name: "Cleric", value: ClericTemplate },
+          { name: "Druid", value: DruidTemplate },
+          { name: "Fighter", value: FighterTemplate },
+          { name: "Monk", value: MonkTemplate },
+          { name: "Paladin", value: PaladinTemplate },
+          { name: "Ranger", value: RangerTemplate },
+          { name: "Rogue", value: RogueTemplate },
+          { name: "Sorcerer", value: SorcererTemplate },
+          { name: "Warlock", value: WarlockTemplate },
+          { name: "Wizard", value: WizardTemplate },
         ],
       },
     ])
     // for loop to select appropriate class template
     .then((data) => {
       console.log(data.classy);
-data.classy()
-
-    //   for (i = 0; i <= classChoices.length; i++) {
-    //     if (data.classy === classChoices[i]) {
-    //       [classChoices[i] + "Template"]();
-    //     }
-    //   }
-      // return doYouWantToBuildAParty()
+      data.classy();
     });
-  // send user back to for option to build another character or stop
 }
 
 // function to build html
@@ -117,6 +122,7 @@ function buildParty() {
         //     `;
   }
 }
-//r
+
 module.exports = theInn;
 module.exports = chooseClass;
+module.exports = doYouWantToBuildAParty;
