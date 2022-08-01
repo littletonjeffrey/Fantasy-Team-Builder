@@ -1,6 +1,6 @@
-const theInn = require("./server");
+const theInn = require("../server");
 const inquirer = require("inquirer");
-const doYouWantToBuildAParty = require("./server");
+const doYouWantToBuildAParty = require("../server");
 module.exports = {
   BarbarianTemplate: function () {
     inquirer

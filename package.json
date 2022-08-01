@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/littletonjeffrey/Fantasy-Team-Builder#readme",
   "dependencies": {
+    "fs": "^0.0.1-security",
     "inquirer": "^6.5.2"
   }
 }

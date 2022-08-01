@@ -31,7 +31,7 @@ const {
   SorcererTemplate,
   WarlockTemplate,
   WizardTemplate,
-} = require("./utils");
+} = require("./utils/templates");
 //array of classes for "routing" for loop
 const classChoices = [
   Artificer,
@@ -82,7 +82,7 @@ function chooseClass() {
       {
         type: "list",
         message: "What class should this character be?",
-        name: "classy",
+        name: "charClass",
         //can call the array up above
         choices: [
           { name: "Artificer", value: ArtificerTemplate },
@@ -102,24 +102,33 @@ function chooseClass() {
     ])
     // for loop to select appropriate class template
     .then((data) => {
-      console.log(data.classy);
-      data.classy();
+      console.log(data.charClass);
+      data.charClass();
     });
 }
 
 // function to build html
 function buildParty() {
-  var displayHTML = "";
+  var cardHTML = "";
 
   for (i = 0; i < theInn.length; i++) {
-    displayHTML += `
+    cardHTML += `
        
-        //  <div class="col-12 col-md-4 col-lg-4 " style = "margin-top: 10px;">
-        // <div class="card" style="width: 18rem;">
-        //     <div class="card-header">
-        //       <h3>Name: ${theInn[i].name}</h3>
-        //       <h4>Class: ${theInn[i].getClass()}</h4>
-        //     `;
+      <div class="col-12 col-md-4 col-lg-4 " style = "margin-top: 10px;">
+        <div class="card" style="width: 18rem;">
+          <div class="card-header">
+            <p id = "playerName">Character: ${theInn[i].name}</p>
+            <a href = "
+          </div>  
+          <div class="card-body">
+          <p id = "charClass">Class: ${theInn[i].charClass}</p>
+          <ul class = "list-group-flush"> 
+            <li id = "subclass"></li>
+          </ul>
+          <p id = "race">${theInn[i].race}</p>
+           `;
+    if (theInn[i].charClass === "Artificer") {
+
   }
 }
 
