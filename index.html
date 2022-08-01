@@ -1,0 +1,8 @@
+cardHTML += `
+      <ul class="list-group-flush">
+        <li id="subclass">Specialty: ${theInn[i].getProSubClass()}</li>
+      </ul>
+      <p id="race">Race: ${theInn[i].getRace()}</p>
+      <p id="artWeapon">Weapon: ${theInn[i].getProWeapon()}</p>
+      <p id="playerName">Played by: ${theInn[i].getPlayerName()}</p>
+  `;} else if (theInn[i].getCharClass() === Barbarian) {

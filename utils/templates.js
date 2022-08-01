@@ -8,14 +8,14 @@ module.exports = {
         {
           type: "list",
           message: "Please select a Barbarian Path?",
-          name: "subclass",
+          name: "barbSubclass",
           choices: [
-            "Totem Warrior",
-            "Battlerager",
-            "Ancestral Guardian",
-            "Storm Herald",
-            "Zealot",
-            "Beast",
+            "The Totem Warrior",
+            "The Battlerager",
+            "The Ancestral Guardian",
+            "The Storm Herald",
+            "The Zealot",
+            "The Beast",
             "Wild Magic",
           ],
         },
@@ -32,7 +32,7 @@ module.exports = {
         {
           type: "input",
           message: "What is this Barbarian's primary weapon?",
-          name: "weapon",
+          name: "barbWeapon",
         },
         {
           type: "input",
@@ -44,10 +44,10 @@ module.exports = {
       .then((data) => {
         console.log(data);
         const newBarbarian = new Barbarian(
-          data.subclass,
+          data.barbSubclass,
           data.race,
           data.charName,
-          data.weapon,
+          data.barbWeapon,
           data.playerName
         );
         theInn.push(newBarbarian);
@@ -61,7 +61,7 @@ module.exports = {
         {
           type: "list",
           message: "Please select a Artificer subclass?",
-          name: "subclass",
+          name: "artSubclass",
           choices: ["Alchemist", "Artillerist", "Battle Smith"],
         },
         {
@@ -77,7 +77,7 @@ module.exports = {
         {
           type: "input",
           message: "What is this Artificer's primary weapon?",
-          name: "weapon",
+          name: "artWeapon",
         },
         {
           type: "input",
@@ -89,10 +89,10 @@ module.exports = {
       .then((data) => {
         console.log(data);
         const newArtificer = new Artificer(
-          data.subclass,
+          data.artSubclass,
           data.race,
           data.charName,
-          data.weapon,
+          data.artWeapon,
           data.playerName
         );
         // Adds character to the list of characters to append to the page
@@ -107,7 +107,7 @@ module.exports = {
       {
         type: "list",
         message: "Please select a Bardic College?",
-        name: "subclass",
+        name: "bardSubclass",
         choices: [
           "Lore",
           "Valor",
@@ -143,7 +143,7 @@ module.exports = {
    .then((data) => {
     console.log(data);
     const newBard = new Bard(
-      data.subclass,
+      data.bardSubclass,
       data.race,
       data.charName,
       data.implement,
@@ -161,7 +161,7 @@ module.exports = {
       {
         type: "list",
         message: "Please select a Cleric domain",
-        name: "subclass",
+        name: "clericSubclass",
         choices: [
           "Knowledge",
           "Life",
@@ -212,7 +212,7 @@ module.exports = {
     .then((data) => {
       console.log(data);
       const newCleric = new Cleric(
-        data.subclass,
+        data.clericSubclass,
         data.race,
         data.charName,
         data.deity,
@@ -228,13 +228,13 @@ module.exports = {
     inquirer.prompt([
       {
         type: "list",
-        message: "Please select a Druid subclass?",
-        name: "subclass",
+        message: "Please select a Druid Circle",
+        name: "druSubclass",
         choices: [
-          "Land",
-          "Moon",
+          "The Land",
+          "The Moon",
           "Dreams",
-          "Shepherd",
+          "The Shepherd",
           "Spores",
           "Stars",
           "Wildfire",
@@ -251,9 +251,14 @@ module.exports = {
         name: "charName",
       },
       {
-        type: "input",
+        type: "list",
         message: "Can this Druid wildshape into an owlbear?",
         name: "owlbear",
+        choices: [
+          "Yes",
+          "No",
+          "If the DM lets me...",
+        ]
       },
       {
         type: "input",
@@ -265,7 +270,7 @@ module.exports = {
     .then((data) => {
       console.log(data);
       const newDruid = new Druid(
-        data.subclass,
+        data.druSubclass,
         data.race,
         data.charName,
         data.owlbear,
