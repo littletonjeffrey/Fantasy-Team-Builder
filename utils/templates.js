@@ -8,7 +8,7 @@ module.exports = {
         {
           type: "list",
           message: "Please select a Barbarian Path?",
-          name: "barbSubclass",
+          name: "barbSubClass",
           choices: [
             "The Totem Warrior",
             "The Battlerager",
@@ -44,7 +44,7 @@ module.exports = {
       .then((data) => {
         console.log(data);
         const newBarbarian = new Barbarian(
-          data.barbSubclass,
+          data.barbSubClass,
           data.race,
           data.charName,
           data.barbWeapon,
@@ -60,8 +60,8 @@ module.exports = {
       .prompt([
         {
           type: "list",
-          message: "Please select a Artificer subclass?",
-          name: "artSubclass",
+          message: "Please select a Artificer Speciality?",
+          name: "artSubClass",
           choices: ["Alchemist", "Artillerist", "Battle Smith"],
         },
         {
@@ -89,7 +89,7 @@ module.exports = {
       .then((data) => {
         console.log(data);
         const newArtificer = new Artificer(
-          data.artSubclass,
+          data.artSubClass,
           data.race,
           data.charName,
           data.artWeapon,
@@ -107,7 +107,7 @@ module.exports = {
       {
         type: "list",
         message: "Please select a Bardic College?",
-        name: "bardSubclass",
+        name: "bardSubClass",
         choices: [
           "Lore",
           "Valor",
@@ -143,7 +143,7 @@ module.exports = {
    .then((data) => {
     console.log(data);
     const newBard = new Bard(
-      data.bardSubclass,
+      data.bardSubClass,
       data.race,
       data.charName,
       data.implement,
@@ -161,7 +161,7 @@ module.exports = {
       {
         type: "list",
         message: "Please select a Cleric domain",
-        name: "clericSubclass",
+        name: "clericSubClass",
         choices: [
           "Knowledge",
           "Life",
@@ -212,7 +212,7 @@ module.exports = {
     .then((data) => {
       console.log(data);
       const newCleric = new Cleric(
-        data.clericSubclass,
+        data.clericSubClass,
         data.race,
         data.charName,
         data.deity,
@@ -229,7 +229,7 @@ module.exports = {
       {
         type: "list",
         message: "Please select a Druid Circle",
-        name: "druSubclass",
+        name: "druSubClass",
         choices: [
           "The Land",
           "The Moon",
@@ -270,7 +270,7 @@ module.exports = {
     .then((data) => {
       console.log(data);
       const newDruid = new Druid(
-        data.druSubclass,
+        data.druSubClass,
         data.race,
         data.charName,
         data.owlbear,
@@ -285,8 +285,8 @@ module.exports = {
     inquirer.prompt([
       {
         type: "list",
-        message: "Please select a Fighter subclass?",
-        name: "subclass",
+        message: "Please select a Martial Archetype",
+        name: "fightSubClass",
         choices: [
           "Champion",
           "Battle Master",
@@ -313,7 +313,7 @@ module.exports = {
       {
         type: "input",
         message: "What is this Fighter's primary weapon?",
-        name: "weapon",
+        name: "fightWeapon",
       },
       {
         type: "input",
@@ -325,10 +325,10 @@ module.exports = {
     .then((data) => {
       console.log(data);
       const newFighter = new Fighter(
-        data.subclass,
+        data.fightSubClass,
         data.race,
         data.charName,
-        data.weapon,
+        data.fightWeapon,
         data.playerName
       );
       theInn.push(newFighter);
@@ -341,17 +341,17 @@ module.exports = {
       {
         type: "list",
         message: "Please select a Monastic tradition?",
-        name: "subclass",
+        name: "monkSubClass",
         choices: [
-          "Open Hand",
+          "The Open Hand",
           "Shadow",
-          "Four Elements",
-          "Long Death",
-          "Sun Soul",
-          "Drunken Master",
-          "Kensei",
+          "The Four Elements",
+          "The Long Death",
+          "The Sun Soul",
+          "The Drunken Master",
+          "The Kensei",
           "Mercy",
-          "Astral Self",
+          "The Astral Self",
         ],
       },
       {
@@ -367,7 +367,7 @@ module.exports = {
       {
         type: "input",
         message: "What is this Monk's primary weapon?",
-        name: "weapon",
+        name: "monkWeapon",
       },
       {
         type: "input",
@@ -379,10 +379,10 @@ module.exports = {
     .then((data) => {
       console.log(data);
       const newMonk = new Monk(
-        data.subclass,
+        data.monkSubClass,
         data.race,
         data.charName,
-        data.weapon,
+        data.monkWeapon,
         data.playerName
       );
       theInn.push(newMonk);
@@ -394,8 +394,8 @@ module.exports = {
     inquirer.prompt([
       {
         type: "list",
-        message: "Please select a Paladin's oath?",
-        name: "subclass",
+        message: "Please select this Paladin's oath?",
+        name: "palSubClass",
         choices: [
           "Devotion",
           "Ancients",
@@ -426,7 +426,7 @@ module.exports = {
       {
         type: "input",
         message: "What is this Paladin's primary weapon?",
-        name: "weapon",
+        name: "palWeapon",
       },
       {
         type: "input",
@@ -438,10 +438,11 @@ module.exports = {
     .then((data) => {
       console.log(data);
       const newPaladin = new Paladin(
-        data.subclass,
+        data.palSubClass
+        ,
         data.race,
         data.charName,
-        data.weapon,
+        data.palWeapon,
         data.playerName,
         data.deity
       );
@@ -455,8 +456,8 @@ module.exports = {
       .prompt([
         {
           type: "list",
-          message: "Please select a Ranger's subclass?",
-          name: "subclass",
+          message: "Please select this Ranger's Archetype?",
+          name: "rangSubClass",
           choices: [
             "Hunter",
             "Beast Master",
@@ -480,12 +481,12 @@ module.exports = {
         {
           type: "input",
           message: "What type of creature is this Ranger's favored enemy?",
-          name: "favenemy",
+          name: "favEnemy",
         },
         {
           type: "input",
           message: "What is this Ranger's primary weapon?",
-          name: "weapon",
+          name: "rangWeapon",
         },
         {
           type: "input",
@@ -497,12 +498,12 @@ module.exports = {
       .then((data) => {
         console.log(data);
         const newRanger = new Ranger(
-          data.subclass,
+          data.rangSubClass,
           data.race,
           data.charName,
-          data.weapon,
+          data.rangWeapon,
           data.playerName,
-          data.favenemy
+          data.favEnemy
         );
         theInn.push(newRanger);
         console.log(theInn);
@@ -513,8 +514,8 @@ module.exports = {
       .prompt([
         {
           type: "list",
-          message: "Please select a Rogue's subclass?",
-          name: "subclass",
+          message: "Please select this Rogue's Archetype?",
+          name: "rogueSubClass",
           choices: [
             "Thief",
             "Assassin",
@@ -540,7 +541,7 @@ module.exports = {
         {
           type: "input",
           message: "What is this Rogue's primary weapon?",
-          name: "weapon",
+          name: "rogueWeapon",
         },
         {
           type: "input",
@@ -552,10 +553,10 @@ module.exports = {
       .then((data) => {
         console.log(data);
         const newRogue = new Rogue(
-          data.subclass,
+          data.rogueSubClass,
           data.race,
           data.charName,
-          data.weapon,
+          data.rogueWeapon,
           data.playerName
         );
         theInn.push(newRogue);
@@ -568,7 +569,7 @@ module.exports = {
         {
           type: "list",
           message: "Please select a Sorcerous Origin?",
-          name: "subclass",
+          name: "sorcSubClass",
           choices: [
             "Draconic Bloodline",
             "Wild Magic",
@@ -593,7 +594,7 @@ module.exports = {
         {
           type: "input",
           message: "What is this Sorcerer's implement?",
-          name: "implement",
+          name: "sorcImplement",
         },
         {
           type: "input",
@@ -605,7 +606,8 @@ module.exports = {
       .then((data) => {
         console.log(data);
         const newSorcerer = new Sorcerer(
-          data.subclass,
+          data.SubClass
+          ,
           data.race,
           data.charName,
           data.implement,
@@ -619,8 +621,8 @@ module.exports = {
     inquirer.prompt([
       {
         type: "list",
-        message: "Please select the type of patron this  Warlock's pact is with?",
-        name: "subclass",
+        message: "Please select the Pact Boon for this Warlock.",
+        name: "warlockSubClass",
         choices: ['Archfey', 'Fiend', 'Great Old One', 'Undying', 'Celestial', 'Hexblade', 'Fathomless', 'Genie'],
       },
       {
@@ -641,7 +643,7 @@ module.exports = {
       {
         type: "input",
         message: "What is this Warlock's implement?",
-        name: "implement",
+        name: "warlockImplement",
       },
       {
         type: "input",
@@ -652,7 +654,7 @@ module.exports = {
 
     .then((data) => {
       console.log (data);
-      const newWarlock = new Warlock(data.subclass, data.race, data.charName, data.weapon, data.playerName, data.patron)
+      const newWarlock = new Warlock(data.warlockSubClass, data.race, data.charName, data.warlockImplement, data.playerName, data.patron)
       theInn.push(newWarlock);
       console.log(theInn);
   })
@@ -661,8 +663,8 @@ WizardTemplate: function () {
   inquirer.prompt([
     {
       type: "list",
-      message: "Please select a Wizard's school of magic?",
-      name: "subclass",
+      message: "Please select this Wizard's school of magic?",
+      name: "wizSubClass",
       choices: ['Abjuration', 'Conjuration', 'Divination', 'Enchantment', 'Evocation', 'Illusion', 'Necromancy', 'Transmutation', 'Bladeslingling', 'War Magic', 'Chronurgy Magic', 'Graviturgy Magic', 'Order of Scribes'],
     },
     {
@@ -678,7 +680,7 @@ WizardTemplate: function () {
     {
       type: "input",
       message: "What is this Wizard's arcane implement?",
-      name: "implement",
+      name: "wizImplement",
     },
     {
       type: "input",
@@ -688,7 +690,8 @@ WizardTemplate: function () {
   ])
   .then((data) => {
     console.log (data);
-    const newWizard = new Wizard(data.subclass, data.race, data.charName, data.weapon, data.playerName, data.implement)
+    const newWizard = new Wizard(data.wizSubClass
+      , data.race, data.charName, data.weapon, data.playerName, data.wizImplement)
     theInn.push(newWizard);
     console.log(theInn);
 })

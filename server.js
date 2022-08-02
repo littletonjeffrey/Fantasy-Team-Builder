@@ -106,13 +106,13 @@ function chooseClass() {
     });
 }
 
-// function to build html
+// function to build character cards
 function buildParty() {
+  
   var cardHTML = "";
 
   for (i = 0; i < theInn.length; i++) {
-    cardHTML += `
-       
+    cardHTML += ` 
       <div class="col-12 col-md-4 col-lg-4 " style = "margin-top: 10px;">
         <div class="card" style="width: 18rem;">
           <div class="card-header">
@@ -120,8 +120,7 @@ function buildParty() {
             <a href = "
           </div>  
           <div class="card-body">
-          <p id = "charClass">Class: ${theInn[i].getCharClass()}</p>
-          
+          <p id = "charClass">Class: ${theInn[i].getCharClass()}</p>  
            `;
     //Test area for bugs if fails
    if (theInn[i].getCharClass() === Artificer) {
@@ -140,8 +139,8 @@ function buildParty() {
       <p id="race">Race: ${theInn[i].getRace()}</p>
       <p id="artWeapon">Weapon: ${theInn[i].getBarbWeapon()}</p>
       <p id="playerName">Played by: ${theInn[i].getPlayerName()}</p>
-    `;} else if (theInn[i].getCharClass() === Bard) {
-      cardHTML += `
+  `;} else if (theInn[i].getCharClass() === Bard) {
+    cardHTML += `
       <ul class="list-group-flush">
         <li id="subclass">College Of ${theInn[i].getBardSubClass()}</li>
       </ul>
@@ -160,20 +159,84 @@ function buildParty() {
   `;} else if (theInn[i].getCharClass() === Druid) {
     cardHTML += `
       <ul class="list-group-flush">
-        <li id="subclass">Circle Of ${theInn[i].getProSubClass()}</li>
+        <li id="subclass">Circle Of ${theInn[i].getDruSubClass()}</li>
       </ul>
       <p id="race">Race: ${theInn[i].getRace()}</p>
       <p id="weapon">Able to wildshape into an Owlbear: ${theInn[i].getOwlBear()}</p>
       <p id="playerName">Played by: ${theInn[i].getPlayerName()}</p>
-  `;} else if (theInn[i].getCharClass() === Barbarian) {
-      
-
-
-    
-   }
-            
-  }
+  `;} else if (theInn[i].getCharClass() === Fighter) {
+    cardHTML += `
+      <ul class="list-group-flush">
+        <li id="subclass">${theInn[i].getFightSubClass()}</li>
+      </ul>
+      <p id="race">Race: ${theInn[i].getRace()}</p>
+      <p id="weapon">Weapon: ${theInn[i].getFightWeapon()}</p>
+      <p id="playerName">Played by: ${theInn[i].getPlayerName()}</p>
+  `;} else if (theInn[i].getCharClass() === Monk) {
+    cardHTML += `
+      <ul class="list-group-flush">
+        <li id="subclass">Way Of ${theInn[i].getMonkSubClass()}</li>
+      </ul>
+      <p id="race">Race: ${theInn[i].getRace()}</p>
+      <p id="weapon">Weapon:</p>: ${theInn[i].getMonkWeaponl()}</p>
+      <p id="playerName">Played by: ${theInn[i].getPlayerName()}</p>
+  `;} else if (theInn[i].getCharClass() === Paladin) {
+    cardHTML += `
+      <ul class="list-group-flush">
+        <li id="subclass">Oath Of${theInn[i].getPalSubClass()}</li>
+      </ul>
+      <p id="race">Race: ${theInn[i].getRace()}</p>
+      <p id="deity">Deity: ${theInn[i].getDeity()}</p>
+      <p id="weapon">Weapon: ${theInn[i].getPalWeapon()}</p>
+      <p id="playerName">Played by: ${theInn[i].getPlayerName()}</p>
+  `;} else if (theInn[i].getCharClass() === Ranger) {
+    cardHTML += `
+      <ul class="list-group-flush">
+        <li id="subclass">${theInn[i].getrangSubClass()}</li>
+      </ul>
+      <p id="race">Race: ${theInn[i].getRace()}</p>
+      <p id="deity">Favored Enemy: ${theInn[i].getFavEnemy()}</p>
+      <p id="weapon">Weapon: ${theInn[i].getRangWeapon()}</p>
+      <p id="playerName">Played by: ${theInn[i].getPlayerName()}</p>
+  `;} else if (theInn[i].getCharClass() === Rogue) {
+    cardHTML += `
+      <ul class="list-group-flush">
+        <li id="subclass">${theInn[i].getRogueSubClass()}</li>
+      </ul>
+      <p id="race">Race: ${theInn[i].getRace()}</p>
+      <p id="weapon">Weapon: ${theInn[i].getRogueWeapon()}</p>
+      <p id="playerName">Played by: ${theInn[i].getPlayerName()}</p>
+  `;} else if (theInn[i].getCharClass() === Sorcerer) {
+  cardHTML += `
+  <ul class="list-group-flush">
+    <li id="subclass">${theInn[i].getSorcSubClass()} Origin</li>
+  </ul>
+  <p id="race">Race: ${theInn[i].getRace()}</p>
+  <p id="weapon">Weapon: ${theInn[i].getSorcImplement()}</p>
+  <p id="playerName">Played by: ${theInn[i].getPlayerName()}</p>
+  `;} else if (theInn[i].getCharClass() === Warlock) {
+  cardHTML += `
+      <ul class="list-group-flush">
+        <li id="subclass">Pact Of The ${theInn[i].getWarlockSubClass()}</li>
+      </ul>
+      <p id="race">Race: ${theInn[i].getRace()}</p>
+      <p id="deity">Patron: ${theInn[i].getPatron()}</p>
+      <p id="weapon">Implement: ${theInn[i].getWarlockImplement()}</p>
+      <p id="playerName">Played by: ${theInn[i].getPlayerName()}</p>
+  `;} else { (theInn[i].getCharClass() === Wizard) 
+    cardHTML += `
+      <ul class="list-group-flush">
+        <li id="subclass">School Of ${theInn[i].getWizSubClass()}</li>
+      </ul>
+      <p id="race">Race: ${theInn[i].getRace()}</p>
+      <p id="weapon">Implement: ${theInn[i].getWizImplement()}</p>
+      <p id="playerName">Played by: ${theInn[i].getPlayerName()}</p>
+  `};
 }
+}
+            
+  
+
 
 module.exports = theInn;
 module.exports = chooseClass;
