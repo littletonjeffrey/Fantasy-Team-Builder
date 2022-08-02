@@ -1,6 +1,7 @@
 //needed packages to run application
 const inquirer = require("inquirer");
 const fs = require("fs");
+var theInn = [];
 
 //TO DO: create an index.js to export these variables from
 //needed class variables from the library
@@ -65,7 +66,7 @@ function doYouWantToBuildAParty() {
     .then((data) => {
       console.log(data.buildYorNo);
       //if yes, send to character builder
-      if (`${data.buildYorNo} === 'Excelsior!'`) {
+      if (data.buildYorNo === 'Excelsior!') {
         chooseClass();
         
 
@@ -102,7 +103,8 @@ function chooseClass() {
     // for loop to select appropriate class template
     .then((data) => {
       console.log(data.charClass);
-      data.charClass();
+      // Pass in a callback to the "add character function"
+      data.charClass(doYouWantToBuildAParty);
       
     });
 }
@@ -255,7 +257,7 @@ var html = `<!DOCTYPE html>
         </nav>
         <section class="container-fluid">
           <div class="row" style= "margin-left:5%;">
-          ${htmlCard}
+          ${cardHTML}
           </div>
         </section>
     
@@ -274,5 +276,5 @@ var html = `<!DOCTYPE html>
 
 
 
-module.exports = chooseClass;
-module.exports = doYouWantToBuildAParty();
+module.exports = theInn;
+doYouWantToBuildAParty();
