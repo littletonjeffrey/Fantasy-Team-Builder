@@ -1,6 +1,22 @@
-const theInn = require("../server");
+var theInn = [];
 const inquirer = require("inquirer");
 const doYouWantToBuildAParty = require("../server");
+
+const Character = require("../lib/character");
+const Artificer = require("../lib/artificer");
+const Barbarian = require("../lib/barbarian");
+const Bard = require("../lib/bard");
+const Cleric = require("../lib/cleric");
+const Druid = require("../lib/druid");
+const Fighter = require("../lib/fighter");
+const Monk = require("../lib/monk");
+const Paladin = require("../lib/paladin");
+const Ranger = require("../lib/ranger");
+const Rogue = require("../lib/rogue");
+const Sorcerer = require("../lib/sorcerer");
+const Warlock = require("../lib/warlock");
+const Wizard = require("../lib/wizard");
+
 module.exports = {
   BarbarianTemplate: function () {
     inquirer
@@ -99,7 +115,7 @@ module.exports = {
         theInn.push(newArtificer);
         console.log(theInn);
         //call the function again, export it into here
-        doYouWantToBuildAParty;
+      // return doYouWantToBuildAParty();
       });
   },
   BardTemplate: function () {
