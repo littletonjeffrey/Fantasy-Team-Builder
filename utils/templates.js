@@ -1,6 +1,6 @@
-var theInn = [];
+
 const inquirer = require("inquirer");
-const doYouWantToBuildAParty = require("../server");
+const theInn = require("../server");
 
 const Character = require("../lib/character");
 const Artificer = require("../lib/artificer");
@@ -18,7 +18,8 @@ const Warlock = require("../lib/warlock");
 const Wizard = require("../lib/wizard");
 
 module.exports = {
-  BarbarianTemplate: function () {
+  // Changed this to take in a callback function
+  BarbarianTemplate: function (callback) {
     inquirer
       .prompt([
         {
@@ -68,7 +69,8 @@ module.exports = {
         );
         theInn.push(newBarbarian);
         console.log(theInn);
-        doYouWantToBuildAParty;
+        // Call the callback
+        callback();
       });
   },
   ArtificerTemplate: function () {
