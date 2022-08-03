@@ -73,14 +73,14 @@ module.exports = {
         callback();
       });
   },
-  ArtificerTemplate: function () {
+  ArtificerTemplate: function (callback) {
     inquirer
       .prompt([
         {
           type: "list",
           message: "Please select a Artificer Speciality?",
           name: "artSubClass",
-          choices: ["Alchemist", "Artillerist", "Battle Smith"],
+          choices: ["Alchemist", "Artillerist", "Battle Smith, "],
         },
         {
           type: "input",
@@ -116,11 +116,11 @@ module.exports = {
         // Adds character to the list of characters to append to the page
         theInn.push(newArtificer);
         console.log(theInn);
-        //call the function again, export it into here
-      // return doYouWantToBuildAParty();
+         // Call the callback
+        callback();
       });
   },
-  BardTemplate: function () {
+  BardTemplate: function (callback) {
     inquirer.prompt([
       {
         type: "list",
@@ -171,10 +171,11 @@ module.exports = {
     theInn.push(newBard);
     console.log(theInn);
     //call the function again, export it into here
-    doYouWantToBuildAParty;
+     // Call the callback
+        callback();
   });
   },
-  ClericTemplate: function () {
+  ClericTemplate: function (callback) {
     inquirer.prompt([
       {
         type: "list",
@@ -239,10 +240,11 @@ module.exports = {
       );
       theInn.push(newCleric);
       console.log(theInn);
-      doYouWantToBuildAParty;
+       // Call the callback
+        callback();
     });
   },
-  DruidTemplate: function () {
+  DruidTemplate: function (callback) {
     inquirer.prompt([
       {
         type: "list",
@@ -296,10 +298,11 @@ module.exports = {
       );
       theInn.push(newDruid);
       console.log(theInn);
-      doYouWantToBuildAParty;
+       // Call the callback
+        callback();
     });
   },
-  FighterTemplate: function () {
+  FighterTemplate: function (callback) {
     inquirer.prompt([
       {
         type: "list",
@@ -351,10 +354,11 @@ module.exports = {
       );
       theInn.push(newFighter);
       console.log(theInn);
-      doYouWantToBuildAParty;
+       // Call the callback
+        callback();
     });
   },
-  MonkTemplate: function () {
+  MonkTemplate: function (callback) {
     inquirer.prompt([
       {
         type: "list",
@@ -405,10 +409,11 @@ module.exports = {
       );
       theInn.push(newMonk);
       console.log(theInn);
-      doYouWantToBuildAParty;
+       // Call the callback
+        callback();
     });
   },
-  PaladinTemplate: function () {
+  PaladinTemplate: function (callback) {
     inquirer.prompt([
       {
         type: "list",
@@ -466,10 +471,11 @@ module.exports = {
       );
       theInn.push(newPaladin);
       console.log(theInn);
-      doYouWantToBuildAParty;
+       // Call the callback
+        callback();
     });
   },
-  RangerTemplate: function () {
+  RangerTemplate: function (callback) {
     inquirer
       .prompt([
         {
@@ -525,9 +531,11 @@ module.exports = {
         );
         theInn.push(newRanger);
         console.log(theInn);
+         // Call the callback
+         callback();
       });
   },
-  RogueTemplate: function () {
+  RogueTemplate: function (callback) {
     inquirer
       .prompt([
         {
@@ -579,9 +587,11 @@ module.exports = {
         );
         theInn.push(newRogue);
         console.log(theInn);
+         // Call the callback
+         callback();
       });
   },
-  SorcererTemplate: function () {
+  SorcererTemplate: function (callback) {
     inquirer
       .prompt([
         {
@@ -633,9 +643,11 @@ module.exports = {
         );
         theInn.push(newSorcerer);
         console.log(theInn);
+         // Call the callback
+         callback();
       });
   },
-  WarlockTemplate: function () {
+  WarlockTemplate: function (callback) {
     inquirer.prompt([
       {
         type: "list",
@@ -677,7 +689,7 @@ module.exports = {
       console.log(theInn);
   })
 },
-WizardTemplate: function () {
+WizardTemplate: function (callback) {
   inquirer.prompt([
     {
       type: "list",
@@ -712,6 +724,8 @@ WizardTemplate: function () {
       , data.race, data.charName, data.weapon, data.playerName, data.wizImplement)
     theInn.push(newWizard);
     console.log(theInn);
+     // Call the callback
+     callback();
 })
 }
 };
