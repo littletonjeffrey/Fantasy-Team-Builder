@@ -1,8 +1,10 @@
 //needed packages to run application
 const inquirer = require("inquirer");
 const fs = require("fs");
-var theInn = [];
-
+const theInn = [];
+function pushInn(data){
+  theInn.push(data)
+}
 //TO DO: create an index.js to export these variables from
 //needed class variables from the library
 const Character = require("./lib/character");
@@ -276,5 +278,5 @@ var html = `<!DOCTYPE html>
 
 
 
-module.exports = theInn;
+module.exports = pushInn;
 doYouWantToBuildAParty();

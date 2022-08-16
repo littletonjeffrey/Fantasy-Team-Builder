@@ -1,7 +1,8 @@
 
 const inquirer = require("inquirer");
-const theInn = require("../server");
-
+const pushInn = require("../server");
+const Inn = require("../server")
+console.log(pushInn)
 const Character = require("../lib/character");
 const Artificer = require("../lib/artificer");
 const Barbarian = require("../lib/barbarian");
@@ -67,8 +68,7 @@ module.exports = {
           data.barbWeapon,
           data.playerName
         );
-        theInn.push(newBarbarian);
-        console.log(theInn);
+        pushInn(newBarbarian);
         // Call the callback
         callback();
       });

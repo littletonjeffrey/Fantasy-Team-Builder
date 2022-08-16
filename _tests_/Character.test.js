@@ -1,7 +1,7 @@
 const fs = require('fs/promises');
 const Character = require('../lib/character');
 
-jest.useFake('fs/promises');
+jest.mock('fs/promises');
 
 describe('Character', () => {
     describe('constructor', () => {
@@ -18,4 +18,26 @@ describe('Character', () => {
                 expect(() => new Character()).to.throw('missing Character parameter');
             })
     })
+
+
+    describe('getters', () => {
+        const [charName, charClass, race, playerName] = ['Tony Stark', 'Artificer','Human', 'Kurt'];
+        const Character = new Character({charName, charClass, race, playerName});
+        
+        it('getCharacterName()', () => {
+            expect(employee.getCharacterName()).toEqual(characterName);
+        });
+
+        it('getCharClass()', () => {
+            expect(employee.getCharClass()).toEqual(charClass);
+        });
+
+        it('getRace()', () => {
+            expect(employee.getRace()).toEqual(race);
+        });
+
+        it('getPlayerName()', () => {
+            expect(employee.getPlayerName()).toEqual('playerName');
+        });
+    });
 });
